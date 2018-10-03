@@ -1,0 +1,31 @@
+html {
+  background-color: gray;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-width: 800px;
+  width: 60vw;
+  margin: 0 auto;
+  padding: 1.5em;
+  background-color: white;
+}
+#weather {
+  font-size: 2em;
+}
+#weather img {
+  vertical-align: middle;
+}
+#stack-results > a > div {
+  padding: 1em;
+  border-left-width: .5em;
+  border-left-color: red;
+  border-left-style: solid;
+  background-color: whitesmoke;
+}
+#stack-results > a:nth-child(even) > div {
+  background-color: lightyellow;
+}
+#stack-results > a > div.answered {
+  border-left-color: green;
+}

@@ -1,88 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>City Finder</title>
-  <style>
-  html {
-    background-color: gray;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    min-width: 800px;
-    width: 60vw;
-    margin: 0 auto;
-    padding: 1.5em;
-    background-color: white;
-  }
-  #weather {
-    font-size: 2em;
-  }
-  #weather img {
-    vertical-align: middle;
-  }
-  #stack-results > a > div {
-    padding: 1em;
-    border-left-width: .5em;
-    border-left-color: red;
-    border-left-style: solid;
-    background-color: whitesmoke;
-  }
-  #stack-results > a:nth-child(even) > div {
-    background-color: lightyellow;
-  }
-  #stack-results > a > div.answered {
-    border-left-color: green;
-  }
-  </style>
+  <title>Creative Project 2</title>
+  <link rel="stylesheet" href="main.css" />
   <script
     src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous">
   </script>
-  <script>
-    $(document).ready(function() {
-      document.getElementById("stackForm").addEventListener("submit", async (E) => {
-        const stackResults = document.getElementById('stack-results');
-        try {
-          event.stopPropagation();
-          event.preventDefault();
-          const stackSearch = E.target.stackSearch.value;
-          const url = new URL('https://api.nasa.gov/planetary/apod');
-          url.searchParams.set('api_key', 'APIKEY');
-          url.searchParams.set('site', 'stackoverflow');
-          url.searchParams.set('sort', 'activity');
-          url.searchParams.set('intitle', stackSearch);
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`StackExchange API call not ok - ${status}`);
-          }
-          const stackData = await response.json();
-          while (stackResults.hasChildNodes()) {
-            stackResults.removeChild(stackResults.firstChild);
-          }
-          console.log(stackData);
-          const entries = stackData.items.map(entry => {
-            const tags = entry.tags.map(tag => `<span>${tag}</span>`);
-            return `
-              <a href="${entry.link}"><div class="${entry.is_answered ? 'answered' : ''}">
-              <div>${entry.title} ${tags.join('')}</div>
-
-              </div></a>`;
-          });
-          stackResults.innerHTML = entries.join('');
-        } catch ($e) {
-          console.log($e);
-        }
-      });
-    });
-  </script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <form id="stackForm">
-    Enter Search Text: <input type="text" id="stackSearch" value=""><br>
-    <input id="stackButton" type="submit" value="Submit">
-  </form>
-  <div id="stack-results"></div>
+  <header>
+    <h1>Nasa Astronomy Picture of the Day</h1>
+    <button id="yesterday">«</button><span id="current-selected-day"></span><button id="tomorrow">»</button>
+  </header>
+  <div id="main">
+    <h2 id='potd-title-out'></h2>
+    <img id='potd-image-out' />
+    <p id='potd-description-out'>
+    </p>
+  </div>
+  <footer>
+  </footer>
 </body>
 </html>
