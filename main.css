@@ -1,31 +1,29 @@
-html {
-  background-color: gray;
-  margin: 0;
-  padding: 0;
-}
 body {
-  min-width: 800px;
-  width: 60vw;
-  margin: 0 auto;
-  padding: 1.5em;
-  background-color: white;
+    background-image: url(http://cdn.shopify.com/s/files/1/1764/3707/products/mistymountains-simple_grande.jpg?v=1491290182);
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
-#weather {
-  font-size: 2em;
+
+h1 {
+    color: navy;
+    margin-left: 20px;
 }
-#weather img {
-  vertical-align: middle;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
-#stack-results > a > div {
-  padding: 1em;
-  border-left-width: .5em;
-  border-left-color: red;
-  border-left-style: solid;
-  background-color: whitesmoke;
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
 }
-#stack-results > a:nth-child(even) > div {
-  background-color: lightyellow;
-}
-#stack-results > a > div.answered {
-  border-left-color: green;
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
