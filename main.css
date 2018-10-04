@@ -14,22 +14,15 @@ body {
   background-color: white;
 }
 
-#weather {
-  font-size: 2px;
+header {
+  font-size: 2em;
 }
-#weather img {
-  vertical-align: middle;
+
+header > nav {
+  display: flex;
+  justify-content: space-around;
 }
-#stack-results > a > div {
-  padding: 1em;
-  border-left-width: .5em;
-  border-left-color: red;
-  border-left-style: solid;
-  background-color: whitesmoke;
-}
-#stack-results > a:nth-child(even) > div {
-  background-color: lightyellow;
-}
-#stack-results > a > div.answered {
-  border-left-color: green;
+
+#main > img {
+  max-width: 100%;
 }
